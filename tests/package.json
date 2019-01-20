@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests.js ./show/tests.js ./important/tests.js ./user/tests.js ./date/tests.js ./sort/tests.js"
+    "test": "node ./node_modules/mocha/bin/mocha tests.js ./show/tests.js ./important/tests.js ./user/tests.js ./date/tests.js ./sort/tests.js"
   },
   "author": "",
   "license": "ISC",
