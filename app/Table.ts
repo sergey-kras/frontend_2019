@@ -17,6 +17,7 @@ export class Table {
 
     public setContext(context: ICommand): void {
         this.context = context;
+        this.setTodoCollectionToContext();
     }
 
     public parseFolders(): void {
