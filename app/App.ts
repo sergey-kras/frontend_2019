@@ -1,30 +1,35 @@
-const { getAllFilePathsWithExtension, readFile } = require('./fileSystem');
-const { readLine } = require('./console');
+import { readLineConsole } from "./helpers/Console";
+import { Table } from "./Table";
+import { Show } from "./commands/Show";
 
-app();
+class App {
+    constructor(){}
+    static table: Table;
 
-function app() {
-    const files = getFiles();
+    public static start() {
+        App.table = new Table(process.cwd(), new Show());
+        App.table.setTodoCollectionToContext();
 
-    console.log('Please, write your command!');
-    readLine(processCommand);
-}
+        console.log('Please, write your command!');
+        readLineConsole(this.processCommand);
+    }
 
-function getFiles() {
-    const filePaths = getAllFilePathsWithExtension(process.cwd(), 'js');
-    return filePaths.map(path => readFile(path));
-}
-
-function processCommand(command) {
-    switch (command) {
-        case 'exit':
-        console.log(process.cwd());
-            process.exit(0);
-            break;
-        default:
-            console.log('wrong command');
-            break;
+    public static processCommand(command: string) {
+        switch (command) {
+            case 'exit':
+                process.exit(0);
+                break;
+            case 'show':
+                App.table.show();
+                break;
+            default:
+                console.log('wrong command');
+                break;
+        }
     }
 }
+
+App.start()
+
 
 // TODO you can do it!

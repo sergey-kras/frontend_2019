@@ -2,15 +2,27 @@ import { ICommand } from "../intefaces/ICommand";
 import { ITodoObject } from "../intefaces/ITodoObject";
 
 export class Show implements ICommand {
-    constructor() {}
+    constructor() { }
 
-    todoCollection?: Array<ITodoObject>;
+    todoCollection: ITodoObject[] = [];
 
-    public sort(todoCollection: Array<ITodoObject>): void {
-        this.todoCollection = todoCollection;
+    public sort(): void {
+
     }
 
     public show(): void {
-        console.log(this.todoCollection);
+        this.todoCollection.map((singleTodo: ITodoObject) => {
+            console.log(`--------------
+Путь: ${singleTodo.filename} ,
+Юзер: ${singleTodo.user} ,
+Приоритет: ${singleTodo.importance} ,
+Комментарий: ${singleTodo.comment} ,
+Дата: ${singleTodo.date} ,
+--------------`)
+        });
+    }
+
+    public set(todoCollection: ITodoObject[]): void {
+        this.todoCollection = todoCollection;
     }
 }

@@ -2,6 +2,7 @@ import { ITodoObject } from "./ITodoObject";
 
 export interface ICommand {
     todoCollection?: Array<ITodoObject>;
-    sort(todoCollection: Array<ITodoObject>): void;
+    sort(type?: string): void;
     show(): void;
+    set(todoCollection: ITodoObject[]): void;
 }
