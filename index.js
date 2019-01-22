@@ -18,6 +18,7 @@ function getFiles() {
 function processCommand(command) {
     switch (command) {
         case 'exit':
+        console.log(process.cwd());
             process.exit(0);
             break;
         default:
