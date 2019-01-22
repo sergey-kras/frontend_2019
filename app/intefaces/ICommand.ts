@@ -1,7 +1,7 @@
 import { ITodoObject } from "./ITodoObject";
 
 export interface ICommand {
-    todoCollection: Array<ITodoObject>;
+    todoCollection?: Array<ITodoObject>;
+    sort(todoCollection: Array<ITodoObject>): void;
     show(): void;
-    sort(): void;
 }

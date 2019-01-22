@@ -1,7 +1,7 @@
 export interface ITodoObject {
     comment: string;
     filename: string;
-    user?: string;
-    date?: Date;
-    importance?: string;
+    user?: string | null;
+    date?: Date | null;
+    importance?: number;
 }
