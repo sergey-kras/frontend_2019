@@ -1,6 +1,8 @@
 import { readLineConsole } from "./helpers/Console";
 import { Table } from "./Table";
 
+import { PipeFormat } from "./helpers/PipeFormat";
+
 import { Show } from "./commands/Show";
 import { User } from "./commands/User";
 import { Date } from "./commands/Date";
@@ -10,10 +12,14 @@ import { Sort } from "./commands/Sort";
 class App {
     constructor() { }
     static table: Table;
+    static PipeFormat: PipeFormat;
 
     public static start() {
         App.table = new Table(process.cwd(), new Show());
         App.table.setTodoCollectionToContext();
+
+        App.PipeFormat = new PipeFormat();
+        App.PipeFormat.addHeader();
 
         console.log('Please, write your command!');
         readLineConsole(this.processCommand);
