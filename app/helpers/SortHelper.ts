@@ -11,7 +11,10 @@ export class SortHelper {
 
     public static byUser(todoCollection: ITodoObject[], user: string): ITodoObject[] {
         return todoCollection.filter((todo: ITodoObject) => {
-            return todo.user === user;
+            if (todo.user) {
+                let filter = new RegExp(user, 'gi');
+                return filter.exec(todo.user);
+            }
         });
     }
 }
