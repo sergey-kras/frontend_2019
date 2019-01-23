@@ -38,6 +38,7 @@ export class PipeParse {
         line.map((param: string) => {
             if (needle.exec(param) && /^[^/a-zA-ZА-Яа-я()]+$/.exec(param)) {
                 result = new Date(param.split('-').join(','));
+                result.setDate(result.getDate()+1);
             }
         });
 

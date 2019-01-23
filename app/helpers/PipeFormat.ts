@@ -64,14 +64,10 @@ export class PipeFormat {
     private addBody(todoCollection: ITodoObject[]): string {
         let body: string = '';
         todoCollection.map((todo: ITodoObject) => {
-            body += this.lineWidthControl(todo) + "\n";
+            body += this.lineWidthControl(todo).replace(/\|*$/,'') + "\n";
         });
 
         return body;
-    }
-
-    private makeLine(todo: ITodoObject) {
-
     }
 
     private lineWidthControl(line: IrowSetting | ITodoObject): string {
