@@ -13,10 +13,10 @@ export class User implements ICommand {
     pipeFormat: PipeFormat;
 
     public sort(command: string): void {
-        let user = command.substr(0, command.indexOf(`\\`));
+        let limit = command.indexOf(`\\`) > -1 ? command.indexOf(`\\`) : command.length;
+        let user = command.substr(0, limit);
         user = user.replace('user ', '');
 
-        console.log(user);
         this.todoCollection = SortHelper.byUser(this.todoCollection, user);
         this.todoCollection = PipeParse.datePattern(this.todoCollection);
         this.todoCollection = PipeParse.importantPattern(this.todoCollection);

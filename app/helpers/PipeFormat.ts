@@ -13,31 +13,31 @@ export class PipeFormat {
             propertyName: 'importance',
             title: '!',
             max: 1,
-            currentMax: 0,
+            currentMax: 1,
         },
         {
             propertyName: 'user',
             title: 'user',
             max: 10,
-            currentMax: 0,
+            currentMax: 4,
         },
         {
             propertyName: 'date',
             title: 'date',
             max: 10,
-            currentMax: 0,
+            currentMax: 4,
         },
         {
             propertyName: 'comment',
             title: 'comment',
             max: 50,
-            currentMax: 0,
+            currentMax: 7,
         },
         {
             propertyName: 'filename',
             title: 'fileName',
             max: 15,
-            currentMax: 0,
+            currentMax: 8,
         },
     ];
 
