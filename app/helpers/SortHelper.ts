@@ -17,4 +17,12 @@ export class SortHelper {
             }
         });
     }
+
+    public static afterDate(todoCollection: ITodoObject[], date: string): ITodoObject[] {
+        return todoCollection.filter((todo: ITodoObject) => {
+            if (todo.date) {
+                return new Date(todo.date) > new Date(date);
+            }
+        });
+    }
 }

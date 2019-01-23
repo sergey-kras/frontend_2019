@@ -39,7 +39,7 @@ export class Table {
         });
     }
 
-    public sort(type?: string) {
+    public sort(type?: any) {
         this.context.sort(type);
     }
 

@@ -46,6 +46,7 @@ class App {
                 break; 
             case Boolean(/date\s*(\d{4}(\-\d{2}(\-\d{2})*)*)*/.exec(command)):
                 App.table.setContext(new Date());
+                App.table.sort(command.match(/date\s*(\d{4}(\-\d{2}(\-\d{2})*)*)*/)); 
                 App.table.show(); 
                 break;
             default:
