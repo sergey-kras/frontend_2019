@@ -31,6 +31,7 @@ class App {
                 break;
             case Boolean(/important/.exec(command)):
                 App.table.setContext(new Important());
+                App.table.sort();
                 App.table.show();
                 break;
             case Boolean(/sort\s(importance)*(user)*(date)*/.exec(command)):

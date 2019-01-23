@@ -19,15 +19,6 @@ export class Show implements ICommand {
 
     public show(): void {
         console.log(this.pipeFormat.getValidList(this.todoCollection));
-//         this.todoCollection.map((singleTodo: ITodoObject) => {
-//             console.log(`--------------
-// Путь: ${singleTodo.filename} ,
-// Юзер: ${singleTodo.user} ,
-// Приоритет: ${singleTodo.importance} ,
-// Комментарий: ${singleTodo.comment} ,
-// Дата: ${singleTodo.date} ,
-// --------------`)
-//         });
     }
 
     public set(todoCollection: ITodoObject[]): void {

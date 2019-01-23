@@ -1,6 +1,8 @@
 import { ICommand } from "../intefaces/ICommand";
 import { ITodoObject } from "../intefaces/ITodoObject";
 import { PipeFormat } from "../helpers/PipeFormat";
+import { PipeParse } from "../helpers/pipeParse";
+import { SortHelper } from "../helpers/sortHelper";
 
 export class Important implements ICommand {
     constructor() {
@@ -11,19 +13,14 @@ export class Important implements ICommand {
     pipeFormat: PipeFormat;
 
     public sort(): void {
-
+        this.todoCollection = SortHelper.onlyInportant(this.todoCollection);
+        this.todoCollection = PipeParse.datePattern(this.todoCollection);
+        this.todoCollection = PipeParse.importantPattern(this.todoCollection);
+        this.todoCollection = PipeParse.userPattern(this.todoCollection);
     }
 
     public show(): void {
-        this.todoCollection.map((singleTodo: ITodoObject) => {
-            console.log(`--------------
-Путь: ${singleTodo.filename} ,
-Юзер: ${singleTodo.user} ,
-Приоритет: ${singleTodo.importance} ,
-Комментарий: ${singleTodo.comment} ,
-Дата: ${singleTodo.date} ,
---------------`)
-        });
+        console.log(this.pipeFormat.getValidList(this.todoCollection));
     }
 
     public set(todoCollection: ITodoObject[]): void {
