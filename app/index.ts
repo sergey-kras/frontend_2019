@@ -39,8 +39,9 @@ class App {
                 App.table.sort(command);
                 App.table.show();
                 break;
-            case Boolean(/user/.exec(command)):
+            case Boolean(/user\s*\w*/.exec(command)):
                 App.table.setContext(new User());
+                App.table.sort(command);
                 App.table.show();
                 break; 
             case Boolean(/date\s*(\d{4}(\-\d{2}(\-\d{2})*)*)*/.exec(command)):
