@@ -56,16 +56,41 @@ export class PipeParse {
         preValidTodo.lines.map((line: string) => {
             const sLine: string[] = line.split(';');
             let validTodo: ITodoObject = {
-                date: PipeParse.getDate(sLine),
-                filename: todoObject.path,
-                comment: PipeParse.getComment(sLine),
-                user: PipeParse.getUser(sLine),
                 importance: PipeParse.getImportance(line),
+                user: PipeParse.getUser(sLine),
+                date: PipeParse.getDate(sLine),
+                comment: PipeParse.getComment(sLine).replace(/^\s*/,'').replace(/\s*$/,''),
+                filename: todoObject.path.replace(process.cwd() + '/', ''),
             };
             resultValidTodo.push(validTodo);
         });
 
         if (resultValidTodo[0]) return resultValidTodo;
         return null;
+    }
+
+    public static datePattern(todoCollection: ITodoObject[]) {
+        todoCollection.map((todo: ITodoObject) => {
+            if (todo.date) {
+                todo.date = new Date(todo.date).toISOString().slice(0, 10);;
+            } else {
+                todo.date = '';
+            }
+        });
+        return todoCollection;
+    }
+
+    public static importantPattern(todoCollection: ITodoObject[]){
+        todoCollection.map((todo: ITodoObject) => {
+            todo.importance = todo.importance > 0 ? '!' : '';
+        });
+        return todoCollection;
+    }
+
+    public static userPattern(todoCollection: ITodoObject[]){
+        todoCollection.map((todo: ITodoObject) => {
+            todo.user = todo.user ? todo.user : '';
+        });
+        return todoCollection;
     }
 }

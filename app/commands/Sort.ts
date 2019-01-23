@@ -1,13 +1,17 @@
 import { ICommand } from "../intefaces/ICommand";
 import { ITodoObject } from "../intefaces/ITodoObject";
+import { PipeFormat } from "../helpers/PipeFormat";
 
 export class Sort implements ICommand {
-    constructor() { }
+    constructor() {
+        this.pipeFormat = new PipeFormat();
+    }
 
     todoCollection: ITodoObject[] = [];
+    pipeFormat: PipeFormat;
 
     public sort(): void {
-
+        
     }
 
     public show(): void {

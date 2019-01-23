@@ -1,13 +1,18 @@
 import { ICommand } from "../intefaces/ICommand";
 import { ITodoObject } from "../intefaces/ITodoObject";
+import { PipeFormat } from "../helpers/PipeFormat";
+import { IrowSetting } from "../intefaces/IrowSetting";
 
 export class Date implements ICommand {
-    constructor() { }
+    constructor() {
+        this.pipeFormat = new PipeFormat();
+    }
 
     todoCollection: ITodoObject[] = [];
+    pipeFormat: PipeFormat;
 
     public sort(): void {
-
+        
     }
 
     public show(): void {
