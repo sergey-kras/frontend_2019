@@ -26,14 +26,6 @@ export class SortHelper {
         });
     }
 
-    public static sortByImportanse(todoCollection: ITodoObject[]): ITodoObject[] {
-        return todoCollection.filter((todo: ITodoObject) => {
-            if (todo.date) {
-                // return new Date(todo.date) > new Date(date);
-            }
-        });
-    }
-
     public static sortBy(todoCollection: ITodoObject[], type: string): ITodoObject[] {
         function dynamicSort(property: any) {
             var sortOrder = 1;
@@ -51,13 +43,5 @@ export class SortHelper {
         }
 
         return todoCollection.sort(dynamicSort(type));
-    }
-
-    public static sortByDate(todoCollection: ITodoObject[]): ITodoObject[] {
-        return todoCollection.filter((todo: ITodoObject) => {
-            if (todo.date) {
-                // return new Date(todo.date) > new Date(date);
-            }
-        });
     }
 }
