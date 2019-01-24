@@ -13,7 +13,7 @@ export class Important implements ICommand {
     pipeFormat: PipeFormat;
 
     public sort(): void {
-        this.todoCollection = SortHelper.onlyInportant(this.todoCollection);
+        this.todoCollection = SortHelper.onlyImportant(this.todoCollection);
         this.todoCollection = PipeParse.datePattern(this.todoCollection);
         this.todoCollection = PipeParse.importantPattern(this.todoCollection);
         this.todoCollection = PipeParse.userPattern(this.todoCollection);

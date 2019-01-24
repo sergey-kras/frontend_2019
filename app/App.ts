@@ -7,7 +7,7 @@ import { Date } from "./commands/Date";
 import { Important } from "./commands/Important";
 import { Sort } from "./commands/Sort";
 
-class App {
+export class App {
     constructor() { }
     static table: Table;
 
@@ -55,8 +55,6 @@ class App {
         }
     }
 }
-
-App.start()
 
 
 // TODO you can do it!

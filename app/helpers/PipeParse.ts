@@ -73,7 +73,7 @@ export class PipeParse {
     public static datePattern(todoCollection: ITodoObject[]) {
         todoCollection.map((todo: ITodoObject) => {
             if (todo.date) {
-                todo.date = new Date(todo.date).toISOString().slice(0, 10);;
+                todo.date = new Date(String(todo.date)).toISOString().slice(0, 10);;
             } else {
                 todo.date = '';
             }

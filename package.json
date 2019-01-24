@@ -8,7 +8,8 @@
   },
   "scripts": {
     "dev": "tsc -p tsconfig.json --watch",
-    "test": "node ./tests/node_modules/mocha/bin/mocha tests.js ./tests/show/tests.js ./tests/important/tests.js ./tests/user/tests.js ./tests/date/tests.js ./tests/sort/tests.js"
+    "test": "node ./tests/node_modules/mocha/bin/mocha tests.js ./tests/show/tests.js ./tests/important/tests.js ./tests/user/tests.js ./tests/date/tests.js ./tests/sort/tests.js",
+    "build": ""
   },
   "author": "",
   "license": "ISC",
