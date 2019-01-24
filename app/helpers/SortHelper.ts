@@ -37,7 +37,6 @@ export class SortHelper {
                 if(!a[property]) a[property] = '';
                 if(!b[property]) b[property] = '';
                 var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
-                result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
                 return result * sortOrder;
             }
         }
